@@ -1,0 +1,38 @@
+:root {
+  --gray: #2c2c2c;
+  --white: #ffffff;
+  --battleshipGray: #848482;
+  --lightBlue: #1d9bf0;
+  --grayWolf: #504a4b;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.formContent {
+  color: var(--white);
+}
+input.authorPost,
+textarea.textPost {
+  width: 100%;
+  padding: 15px;
+  border-radius: 4px;
+  border: solid 1px gray;
+  background-color: var(--grayWolf);
+  color: var(--white);
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+textarea {
+  height: 200px;
+}
+
+#submitButton {
+  background-color: var(--lightBlue);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
