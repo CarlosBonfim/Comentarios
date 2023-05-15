@@ -30,14 +30,13 @@ function submitClick() {
 //funcao que exibe o form de edicao
 function editPost(element) {
   let id = element.dataset.id;
-  fetch(url + `/${id}`)
-    .then((response) => response.json())
-    .then((data) => data[0])
+   fetch(url + `/${id}`)
+    .then((data) => data.json())
     .then((values) => {
       const postForm = document.createElement("div");
       postForm.classList.add("formPost");
       postForm.innerHTML = `<form class="formContent">
-      <input type="hidden" name="id" value="${values.id}" >
+      <input type="hidden" name="id" value="${values._id}" >
       <label for="author" class="authorPost">Autor</label><br>
       <input type="text" class="authorPost" placeholder="${values.autor}" maxlength="10" name="autor" readonly><br>
       <label for="text " class="textPost">Sua mensagem</label><br>
@@ -105,8 +104,8 @@ fetch(url)
       const postContent = document.createElement("div");
       postContent.classList.add("post_content");
       postContent.innerHTML = `<h3 class="author_post">${element.autor}</h3><p class="post_text">${element.texto}</p><div class="post_buttons">
-      <i class="fa-sharp fa-solid fa-trash trash" onclick="deleteClick(this)" data-id="${element.id}"></i>	
-      <i class="fa-solid fa-pen-to-square" onclick="showForm('put', this)" data-id="${element.id}"></i>
+      <i class="fa-sharp fa-solid fa-trash trash" onclick="deleteClick(this)" data-id="${element._id}"></i>	
+      <i class="fa-solid fa-pen-to-square" onclick="showForm('put', this)" data-id="${element._id}"></i>
     </div>`;
       for (let dataElements of dataElement) {
         dataElements.appendChild(postContent.cloneNode(true));

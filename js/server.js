@@ -16,6 +16,13 @@ app.get('/posts', (req,res) => {
     .catch(err => res.status(500).send(err))
 })
 
+app.get('/posts/:id', (req, res) => {
+  const id = req.params.id;
+  Postagem.findById(id)
+    .then(postagens => res.send(postagens))
+    .catch(err => res.status(500).send(err))
+})
+
 app.post('/posts', (req, res) => {
   const autor = req.body.autor;
   const texto = req.body.texto;
