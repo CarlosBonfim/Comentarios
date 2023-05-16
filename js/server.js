@@ -31,6 +31,14 @@ app.post('/posts', (req, res) => {
     .catch(err => res.status(500).send(err))
 })
 
+app.put('/posts', (req,res) => {
+  const texto = req.body.texto;
+  const id = req.body._id
+  Postagem.findByIdAndUpdate(id, {texto})
+    .then(result => res.status(201).send(result))
+    .catch(err => res.status(500).send(err))
+})
+
 app.listen(port, () => {
   console.log(`Esta executando na porta ${port}`)
 })
