@@ -33,8 +33,8 @@ app.post('/posts', (req, res) => {
 
 app.put('/posts', (req,res) => {
   const texto = req.body.texto;
-  const id = req.body._id
-  Postagem.findByIdAndUpdate(id, {texto})
+  const _id = req.body.id
+  Postagem.findByIdAndUpdate(_id, {texto})
     .then(result => res.status(201).send(result))
     .catch(err => res.status(500).send(err))
 })
