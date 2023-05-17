@@ -85,10 +85,9 @@ function deleteClick(element) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        id: id,
+        _id: id,
       }),
-    })
-      .then(() => {
+    }).then(() => {
         location.reload();
       })
       .catch((err) => console.log(`Houve um erro: ${err}`));

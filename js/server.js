@@ -39,6 +39,13 @@ app.put('/posts', (req,res) => {
     .catch(err => res.status(500).send(err))
 })
 
+app.delete('/posts', (req, res) => {
+  const id = req.body._id;
+  Postagem.findByIdAndDelete(id)
+    .then(result => res.status(201).send(result))
+    .catch(err => res.status(500).send(err))
+})
+
 app.listen(port, () => {
   console.log(`Esta executando na porta ${port}`)
 })
