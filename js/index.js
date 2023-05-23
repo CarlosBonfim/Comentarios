@@ -22,7 +22,7 @@ function renderPostForm() {
   postForm.classList.add("formPost");
   postForm.innerHTML = `<form class="formContent">
     <label for="author" class="authorPost">Autor</label><br>
-    <input type="text" class="authorPost" maxlength="10" name="autor"><br>
+    <input type="text" class="authorPost" maxlength="15" name="autor"><br>
     <label for="text " class="textPost">Sua mensagem</label><br>
     <textarea class="textPost" maxlength="120" name="texto"></textarea><br><br>
     <input type="submit" id="submitButton" value="Enviar" onclick="submitClick()">
