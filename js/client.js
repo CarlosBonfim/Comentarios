@@ -74,10 +74,29 @@ function submitEditClick() {
     });
   }
 }
+function formDeletePost(element){
+  let id = element.dataset.id
+  fetch(url + `/${id}`)
+    .then(data => data.json())
+    .then(values => {
+      const postForm = document.createElement('div')
+      postForm.classList.add('formPost')
+      postForm.innerHTML = `<form class="formContent">
+      <label for="author" class="authorPost">Autor</label><br>
+      <input type="text" class="authorPost" placeholder="${values.autor}" maxlength="10" name="autor" readonly><br>
+      <label for="text " class="textPost">Sua mensagem</label><br>
+      <textarea class="textPost" placeholder="${values.texto}" name="texto" maxlength="120" readonly></textarea><br><br>
+      <input type="button" id="editButton" value="Apagar" data-id ="${values._id}">
+      </form>`
+      main.appendChild(postForm)
+      document.getElementById("editButton").addEventListener("click", function () {
+        deleteClick(this.dataset.id);
+      })
+    })
+}
 
 //funcao delete
-function deleteClick(element) {
-  let id = element.dataset.id;
+function deleteClick(id) {
   if (confirm("Você quer realmente apagar isso ?")) {
     fetch(url, {
       method: "DELETE",
@@ -87,10 +106,12 @@ function deleteClick(element) {
       body: JSON.stringify({
         _id: id,
       }),
-    }).then(() => {
+     })
+    .then(backPosts)
+      .then(() => {
         location.reload();
       })
-      .catch((err) => console.log(`Houve um erro: ${err}`));
+    .catch((err) => console.log(`Houve um erro: ${err}`));
   }
 }
 
@@ -103,7 +124,7 @@ fetch(url)
       const postContent = document.createElement("div");
       postContent.classList.add("post_content");
       postContent.innerHTML = `<h3 class="author_post">${element.autor}</h3><p class="post_text">${element.texto}</p><div class="post_buttons">
-      <i class="fa-sharp fa-solid fa-trash trash" onclick="deleteClick(this)" data-id="${element._id}"></i>	
+      <i class="fa-sharp fa-solid fa-trash trash" onclick="showForm('delete',this)" data-id="${element._id}"></i>	
       <i class="fa-solid fa-pen-to-square" onclick="showForm('put', this)" data-id="${element._id}"></i>
     </div>`;
       for (let dataElements of dataElement) {

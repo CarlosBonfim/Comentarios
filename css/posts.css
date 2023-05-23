@@ -4,6 +4,7 @@
   --battleshipGray: #848482;
   --lightBlue: #1d9bf0;
   --grayWolf: #504a4b;
+  --red: #c21f1f;
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -30,6 +31,15 @@ textarea {
 
 #submitButton {
   background-color: var(--lightBlue);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#editButton {
+  background-color: var(--red);
   color: white;
   padding: 12px 20px;
   border: none;

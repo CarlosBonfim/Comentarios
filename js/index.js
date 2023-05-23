@@ -11,6 +11,8 @@ function showForm(typeRequest, element) {
     renderPostForm();
   } else if (typeRequest === "put") {
     editPost(element);
+  } else if (typeRequest === "delete"){
+    formDeletePost(element)
   }
 }
 
