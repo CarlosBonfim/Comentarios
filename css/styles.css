@@ -56,7 +56,6 @@ body {
 }
 .title-header {
   color: var(--white);
-  /* margin: 2px 350px 2px 300px; */
   width: 50%;
   display: flex;
   align-items: center;
@@ -69,7 +68,6 @@ body {
 }
 .description_author_content {
   display: flex;
-  /* margin: 2px 50px 2px 50px; */
   padding-top: 10em;
 }
 .author {
@@ -112,13 +110,12 @@ body {
   margin: 5px;
   border: solid 1px var(--battleshipGray);
   border-radius: 5px;
+  overflow-wrap: break-word;
 }
 .post_buttons {
   display: flex;
   align-items: center;
   justify-content: start;
-  /* width: 20px;
-  height: 20px; */
   padding-top: 2px;
   margin: 2px;
 }
