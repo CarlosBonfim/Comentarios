@@ -30,7 +30,7 @@ function submitClick() {
 //funcao que exibe o form de edicao
 function editPost(element) {
   let id = element.dataset.id;
-   fetch(url + `/${id}`)
+  fetch(url + `/${id}`)
     .then((data) => data.json())
     .then((values) => {
       const postForm = document.createElement("div");
@@ -74,25 +74,27 @@ function submitEditClick() {
     });
   }
 }
-function formDeletePost(element){
-  let id = element.dataset.id
+function formDeletePost(element) {
+  let id = element.dataset.id;
   fetch(url + `/${id}`)
-    .then(data => data.json())
-    .then(values => {
-      const postForm = document.createElement('div')
-      postForm.classList.add('formPost')
+    .then((data) => data.json())
+    .then((values) => {
+      const postForm = document.createElement("div");
+      postForm.classList.add("formPost");
       postForm.innerHTML = `<form class="formContent">
       <label for="author" class="authorPost">Autor</label><br>
       <input type="text" class="authorPost" placeholder="${values.autor}" maxlength="10" name="autor" readonly><br>
       <label for="text " class="textPost">Sua mensagem</label><br>
       <textarea class="textPost" placeholder="${values.texto}" name="texto" maxlength="120" readonly></textarea><br><br>
       <input type="button" id="editButton" value="Apagar" data-id ="${values._id}">
-      </form>`
-      main.appendChild(postForm)
-      document.getElementById("editButton").addEventListener("click", function () {
-        deleteClick(this.dataset.id);
-      })
-    })
+      </form>`;
+      main.appendChild(postForm);
+      document
+        .getElementById("editButton")
+        .addEventListener("click", function () {
+          deleteClick(this.dataset.id);
+        });
+    });
 }
 
 //funcao delete
@@ -106,12 +108,12 @@ function deleteClick(id) {
       body: JSON.stringify({
         _id: id,
       }),
-     })
-    .then(backPosts)
+    })
+      .then(backPosts)
       .then(() => {
         location.reload();
       })
-    .catch((err) => console.log(`Houve um erro: ${err}`));
+      .catch((err) => console.log(`Houve um erro: ${err}`));
   }
 }
 

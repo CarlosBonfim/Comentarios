@@ -10,7 +10,6 @@
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 body {
   display: flex;
   align-items: center;
@@ -152,7 +151,6 @@ body {
 }
 .newPostButton:hover {
   background-color: #0d8ee4;
-  /* transition: opacity 0s; */
 }
 .newPostButton:active {
   background-color: #00568f;
